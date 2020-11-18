@@ -9,6 +9,7 @@
     mvn clean install
     ```
 2. 添加到项目依赖  
+
     这里给出结合lombok的例子，不需要可以把lombok相关的东西删除
     ```
     ...
@@ -51,4 +52,6 @@
     </build>
     ...
     ````
-   
+可直接参考generator-test模块
+## Reference
+[Hibernate JPA 2 Metamodel Generator](https://github.com/hibernate/hibernate-orm/tree/master/tooling/metamodel-generator)  
