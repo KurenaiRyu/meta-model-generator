@@ -8,7 +8,7 @@
     ```shell script
     mvn clean install
     ```
-2. 添加到项目依赖  
+2. 添加到自己项目依赖  
 
     这里给出结合lombok的例子，不需要可以把lombok相关的东西删除
     ```
@@ -52,6 +52,40 @@
     </build>
     ...
     ````
-可直接参考generator-test模块
+3. 为实体添加注解
+    ```java
+    import javax.persistence.Entity;
+    import javax.persistence.Id;
+    
+    @Entity
+    public class Student {
+       @Id
+       private String id;
+       private String stuName;
+       private String stuId;
+       private int    stuAge;
+    }
+    ```
+4. 编译项目
+    ```shell script
+    mvn clean compile 
+    ```
+    之后就能够在编译目录中得到带有`_`后缀的实体类
+    > 注意
+    > 如果您也使用JPA的生成器的话，由于命名规则一样，会出现冲突。
+    ```java
+    import io.github.natsusai.test.Student;
+    
+    public abstract class Student_ {
+    
+     public static final String ID = "id";
+     public static final String STU_NAME = "stu_name";
+     public static final String STU_AGE = "stu_age";
+     public static final String STU_ID = "stu_id";
+    
+    }
+    ```
+可直接参考generator-test模块  
+
 ## Reference
 [Hibernate JPA 2 Metamodel Generator](https://github.com/hibernate/hibernate-orm/tree/master/tooling/metamodel-generator)  
