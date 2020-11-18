@@ -1,0 +1,3 @@
+# Project exclude paths
+/generator-test/target/
+/meta-model-generator/target/
